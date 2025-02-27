@@ -7,6 +7,7 @@ import { Button } from "./ui/button";
 import { chat } from "@/actions/chat";
 import { readStreamableValue } from "ai/rsc";
 import { cn } from "@/lib/utils";
+import MarkdownRenderer from "./markdown-renderer";
 
 const prompts = [
     {
@@ -172,9 +173,7 @@ const Chatbot = () => {
                                     }
                                 )}>
                                     {message.role === "assistant" ? (
-                                        <p className="whitespace-pre-wrap">
-                                            {message.content}
-                                        </p>
+                                        <MarkdownRenderer content={message.content} />
                                     ) : (
                                         <p className="whitespace-pre-wrap">
                                             {message.content}
